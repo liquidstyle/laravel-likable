@@ -3,20 +3,12 @@ Laravel Likeable Plugin
 
 Trait for Laravel Eloquent models to allow easy implementation of a "like" or "favorite" or "remember" feature.
 
-[Laravel 5 Documentation](https://github.com/rtconner/laravel-likeable/tree/laravel-5)  
-[Laravel 4 Documentation](https://github.com/rtconner/laravel-likeable/tree/laravel-4)
-
 #### Composer Install (for Laravel 5)
 
 	composer require rtconner/laravel-likeable "~1.2"
 
 #### Install and then run the migrations
 
-```php
-'providers' => [
-	\Liquidstyle\Likeable\LikeableServiceProvider::class,
-],
-```
 
 ```bash
 php artisan vendor:publish --provider="Liquidstyle\Likeable\LikeableServiceProvider" --tag=migrations
@@ -79,8 +71,30 @@ Article::whereFavoritedBy($myUserId) // find only articles where user favorited 
 	->get();
 ```	
 
+#### Sample Usage for WISHLISTR
+
+```php	
+$article->wishlist(); // wishlist the article for current user
+$article->wishlist($myUserId); // pass in your own user id
+$article->wishlist(0); // just add wishlists to the count, and don't track by user
+
+$article->unwishlist(); // remove wishlist from the article
+$article->unwishlist($myUserId); // pass in your own user id
+$article->unwishlist(0); // remove wishlists from the count -- does not check for user
+
+$article->wishlistCount; // get count of wishlists
+
+$article->wishlist; // Iterable Illuminate\Database\Eloquent\Collection of existing wishlists 
+
+$article->wishlisted(); // check if currently logged in user wishlisted the article
+$article->wishlisted($myUserId);
+
+Article::whereWishlistedBy($myUserId) // find only articles where user wishlisted them
+	->with('wishlistCounter') // highly suggested to allow eager load
+	->get();
+```	
 
 #### Credits
 
- - Robert Conner - http://smartersoftware.net
+ - Robert Conner - http://smartersoftware.net (Original Developer)
  - Jaye E. Miller - http://github.com/liquidstyle
