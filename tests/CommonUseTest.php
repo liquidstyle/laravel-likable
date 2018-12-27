@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
-use Conner\Likeable\Likeable;
-use Conner\Likeable\LikeCounter;
+use Liquidstyle\Likeable\Likeable;
+use Liquidstyle\Likeable\LikeCounter;
 
 class CommonUseTest extends TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-use Conner\Likeable\LikeableServiceProvider;
+use Liquidstyle\Likeable\LikeableServiceProvider;
 
 abstract class TestCase extends Orchestra\Testbench\TestCase
 {
