@@ -5,7 +5,7 @@ Trait for Laravel Eloquent models to allow easy implementation of a "like" or "f
 
 #### Composer Install (for Laravel 5)
 
-	composer require rtconner/laravel-likeable "~1.2"
+	composer require liquidstyle/laravel-likeable "~2.0"
 
 #### Install and then run the migrations
 
