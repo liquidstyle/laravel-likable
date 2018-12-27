@@ -1,12 +1,6 @@
 Laravel Likeable Plugin
 ============
 
-Important Note: As of version 1.2 I renamed `Conner\Likeable\LikeableTrait` to `Conner\Likeable\Likeable`
-
-[![Build Status](https://travis-ci.org/rtconner/laravel-likeable.svg?branch=master)](https://travis-ci.org/rtconner/laravel-likeable)
-[![Latest Stable Version](https://poser.pugx.org/rtconner/laravel-likeable/v/stable.svg)](https://packagist.org/packages/rtconner/laravel-likeable)
-[![License](https://poser.pugx.org/rtconner/laravel-likeable/license.svg)](https://packagist.org/packages/rtconner/laravel-likeable)
-
 Trait for Laravel Eloquent models to allow easy implementation of a "like" or "favorite" or "remember" feature.
 
 [Laravel 5 Documentation](https://github.com/rtconner/laravel-likeable/tree/laravel-5)  
@@ -20,12 +14,12 @@ Trait for Laravel Eloquent models to allow easy implementation of a "like" or "f
 
 ```php
 'providers' => [
-	\Conner\Likeable\LikeableServiceProvider::class,
+	\Liquidstyle\Likeable\LikeableServiceProvider::class,
 ],
 ```
 
 ```bash
-php artisan vendor:publish --provider="Conner\Likeable\LikeableServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="Liquidstyle\Likeable\LikeableServiceProvider" --tag=migrations
 php artisan migrate
 ```
 
@@ -33,11 +27,13 @@ php artisan migrate
 
 ```php
 class Article extends \Illuminate\Database\Eloquent\Model {
-	use \Conner\Likeable\LikeableTrait;
+	use \Liquidstyle\Likeable\LikeableTrait;
+	use \Liquidstyle\Likeable\FavoriteableTrait;
+	use \Liquidstyle\Likeable\WishlistableTrait;
 }
 ```
 
-#### Sample Usage
+#### Sample Usage for LIKE
 
 ```php
 $article->like(); // like the article for current user
@@ -58,8 +54,33 @@ $article->liked($myUserId);
 Article::whereLikedBy($myUserId) // find only articles where user liked them
 	->with('likeCounter') // highly suggested to allow eager load
 	->get();
-```
+```	
+
+#### Sample Usage for FAVORITE
+
+```php	
+$article->favorite(); // favorite the article for current user
+$article->favorite($myUserId); // pass in your own user id
+$article->favorite(0); // just add favorites to the count, and don't track by user
+
+$article->unfavorite(); // remove favorite from the article
+$article->unfavorite($myUserId); // pass in your own user id
+$article->unfavorite(0); // remove favorites from the count -- does not check for user
+
+$article->favoriteCount; // get count of favorites
+
+$article->favorites; // Iterable Illuminate\Database\Eloquent\Collection of existing favorites 
+
+$article->favorited(); // check if currently logged in user favorited the article
+$article->favorited($myUserId);
+
+Article::whereFavoritedBy($myUserId) // find only articles where user favorited them
+	->with('favoriteCounter') // highly suggested to allow eager load
+	->get();
+```	
+
 
 #### Credits
 
  - Robert Conner - http://smartersoftware.net
+ - Jaye E. Miller - http://github.com/liquidstyle
