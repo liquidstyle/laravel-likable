@@ -1,6 +1,6 @@
 <?php
 
-namespace Liquidstyle\Wishlistable;
+namespace Liquidstyle\Likeable;
 
 /**
  * Copyright (C) 2014 Robert Conner
