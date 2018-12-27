@@ -1,6 +1,6 @@
 <?php
 
-namespace Liquidstyle\Likeable;
+namespace Liquidstyle\Wishlistable;
 
 /**
  * Copyright (C) 2014 Robert Conner
@@ -8,13 +8,13 @@ namespace Liquidstyle\Likeable;
  */
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LikeCounter extends Eloquent
+class WishlistCounter extends Eloquent
 {
-	protected $table = 'likeable_like_counters';
+	protected $table = 'wishlistable_wishlist_counters';
 	public $timestamps = false;
-	protected $fillable = ['likeable_id', 'likeable_type', 'count'];
+	protected $fillable = ['wishlistable_id', 'wishlistable_type', 'count'];
 	
-	public function likeable()
+	public function wishlistable()
 	{
 		return $this->morphTo();
 	}
@@ -30,10 +30,10 @@ class LikeCounter extends Eloquent
 			throw new \Exception('$modelClass cannot be empty/null. Maybe set the $morphClass variable on your model.');
 		}
 		
-		$builder = Like::query()
-			->select(\DB::raw('count(*) as count, likeable_type, likeable_id'))
-			->where('likeable_type', $modelClass)
-			->groupBy('likeable_id');
+		$builder = Wishlist::query()
+			->select(\DB::raw('count(*) as count, wishlistable_type, wishlistable_id'))
+			->where('wishlistable_type', $modelClass)
+			->groupBy('wishlistable_id');
 		
 		$results = $builder->get();
 		

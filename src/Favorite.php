@@ -8,13 +8,18 @@ namespace Liquidstyle\Likeable;
  */
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Like extends Eloquent
+class Favorite extends Eloquent
 {
-	protected $table = 'likeable_likes';
-	public $timestamps = true;
-	protected $fillable = ['likeable_id', 'likeable_type', 'user_id'];
+	protected $table = 'favorites';
 
-	public function likeable()
+	public $timestamps = true;
+
+	protected $fillable = [
+		'favoriteable_id',
+		'favoriteable_type','user_id'
+	];
+
+	public function favoriteable()
 	{
 		return $this->morphTo();
 	}

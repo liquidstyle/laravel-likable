@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Copyright (C) 2014 Robert Conner
+ * Forked/Extended 2018 Jaye E. Miller
+ */
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 

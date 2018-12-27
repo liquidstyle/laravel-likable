@@ -1,6 +1,6 @@
 <?php
 
-namespace Liquidstyle\Likeable;
+namespace Liquidstyle\Wishlistable;
 
 /**
  * Copyright (C) 2014 Robert Conner
@@ -8,7 +8,7 @@ namespace Liquidstyle\Likeable;
  */
 use Illuminate\Support\ServiceProvider;
 
-class LikeableServiceProvider extends ServiceProvider
+class WishlistableServiceProvider extends ServiceProvider
 {
 	public function boot()
 	{

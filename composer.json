@@ -1,13 +1,13 @@
 {
-	"name": "rtconner/laravel-likeable",
-	"description": "Trait for Laravel Eloquent models to allow easy implementation of a 'like' or 'favorite' or 'remember' feature.",
+	"name": "liquidstyle/laravel-likeable",
+	"description": "Traits for Laravel Eloquent models to allow easy implementation of a 'like' or 'favorite' and 'wishlist' feature.",
 	"license": "MIT",
-	"homepage": "https://smartersoftware.net/packages/laravel-likeable-favorite",
-	"keywords": ["trait", "laravel", "laravel5", "eloquent", "likeable", "likable", "like", "remember", "follow", "favorite", "favourite"],
+	"homepage": "https://github.com/liquidstyle",
+	"keywords": ["trait", "laravel", "laravel5", "eloquent", "likeable", "likable", "like", "wishlist"],
 	"authors": [
 		{
-			"name": "Robert Conner",
-			"email": "rtconner@smarter.bz"
+			"name": "Jaye Miller",
+			"email": "jaye.miller@liquidstyledigital.com"
 		}
 	],
 	"require": {

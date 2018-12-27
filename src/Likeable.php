@@ -1,9 +1,10 @@
 <?php
 
-namespace Conner\Likeable;
+namespace Liquidstyle\Likeable;
 
 /**
  * Copyright (C) 2014 Robert Conner
+ * Forked/Extended 2018 Jaye E. Miller
  */
 trait Likeable
 {
