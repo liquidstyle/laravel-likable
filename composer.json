@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Liquidstyle\\Likable\\LikeableServiceProvider"
+                "Liquidstyle\\Likeable\\LikeableServiceProvider"
             ]
         }
     }
