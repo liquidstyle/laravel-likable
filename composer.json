@@ -22,7 +22,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Conner\\Likeable\\": "src/"
+			"Liquidstyle\\Likeable\\": "src/"
 		}
 	},
 	"autoload-dev": {
