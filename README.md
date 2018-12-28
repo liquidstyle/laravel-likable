@@ -1,3 +1,5 @@
+!!! NOT STABLE - DO NOT USE !!!
+
 Laravel Likeable Plugin
 ============
 
