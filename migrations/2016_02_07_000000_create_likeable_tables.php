@@ -11,7 +11,7 @@ class CreateLikeableTables extends Migration
 {
 	public function up()
 	{
-		Schema::create('likeable_likes', function(Blueprint $table) {
+		Schema::create('likes', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('likeable_id', 36);
 			$table->string('likeable_type', 255);
@@ -20,7 +20,7 @@ class CreateLikeableTables extends Migration
 			$table->unique(['likeable_id', 'likeable_type', 'user_id'], 'likeable_likes_unique');
 		});
 		
-		Schema::create('likeable_like_counters', function(Blueprint $table) {
+		Schema::create('likes_counters', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('likeable_id', 36);
 			$table->string('likeable_type', 255);
@@ -32,7 +32,7 @@ class CreateLikeableTables extends Migration
 
 	public function down()
 	{
-		Schema::drop('likeable_likes');
-		Schema::drop('likeable_like_counters');
+		Schema::drop('likes');
+		Schema::drop('likes_counters');
 	}
 }

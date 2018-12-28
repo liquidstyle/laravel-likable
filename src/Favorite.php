@@ -16,7 +16,8 @@ class Favorite extends Eloquent
 
 	protected $fillable = [
 		'favoriteable_id',
-		'favoriteable_type','user_id'
+		'favoriteable_type',
+		'user_id'
 	];
 
 	public function favoriteable()

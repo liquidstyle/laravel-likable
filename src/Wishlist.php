@@ -10,9 +10,14 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Wishlist extends Eloquent
 {
-	protected $table = 'wishlistable_wishlists';
+	protected $table = 'wishlists';
+
 	public $timestamps = true;
-	protected $fillable = ['wishlistable_id', 'wishlistable_type', 'user_id'];
+
+	protected $fillable = [
+		'wishlistable_id', 
+		'wishlistable_type', 
+		'user_id'];
 
 	public function wishlistable()
 	{

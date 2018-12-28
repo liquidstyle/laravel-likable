@@ -10,9 +10,15 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class LikeCounter extends Eloquent
 {
-	protected $table = 'likeable_like_counters';
+	protected $table = 'likes_counters';
+
 	public $timestamps = false;
-	protected $fillable = ['likeable_id', 'likeable_type', 'count'];
+
+	protected $fillable = [
+		'likeable_id', 
+		'likeable_type', 
+		'count'
+	];
 	
 	public function likeable()
 	{

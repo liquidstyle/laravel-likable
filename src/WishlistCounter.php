@@ -10,9 +10,15 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class WishlistCounter extends Eloquent
 {
-	protected $table = 'wishlistable_wishlist_counters';
+	protected $table = 'wishlists_counters';
+
 	public $timestamps = false;
-	protected $fillable = ['wishlistable_id', 'wishlistable_type', 'count'];
+
+	protected $fillable = [
+		'wishlistable_id', 
+		'wishlistable_type', 
+		'count'
+	];
 	
 	public function wishlistable()
 	{
