@@ -74,7 +74,7 @@ Item::whereFavoritedBy($myUserId) // find only items where user favorited them
 	->get();
 ```	
 
-#### Sample Usage for WISHLISTR
+#### Sample Usage for WISHLISTED
 
 ```php	
 $item->wishlist(); // wishlist the item for current user
