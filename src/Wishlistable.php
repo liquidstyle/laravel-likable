@@ -23,10 +23,10 @@ trait Wishlistable
 	}
 	
 	/**
-	 * Fetch records that are wishlistd by a given user.
+	 * Fetch records that are wishlisted by a given user.
 	 * Ex: Book::whereWishlistdBy(123)->get();
 	 */
-	public function scopeWhereWishlistdBy($query, $userId=null)
+	public function scopeWhereWishlistedBy($query, $userId=null)
 	{
 		if(is_null($userId)) {
 			$userId = auth()->id();
@@ -112,7 +112,7 @@ trait Wishlistable
 	}
 	
 	/**
-	 * Has the currently logged in user already "wishlistd" the current object
+	 * Has the currently logged in user already "wishlisted" the current object
 	 *
 	 * @param string $userId
 	 * @return boolean
@@ -164,12 +164,12 @@ trait Wishlistable
 	
 	/**
 	 * Did the currently logged in user wishlist this model
-	 * Example : if($book->wishlistd) { }
+	 * Example : if($book->wishlisted) { }
 	 * @return boolean
 	 */
 	public function getWishlistdAttribute()
 	{
-		return $this->wishlistd();
+		return $this->wishlisted();
 	}
 	
 	/**
