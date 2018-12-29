@@ -29,7 +29,7 @@ trait Wishlistable
 	public function scopeWhereWishlistdBy($query, $userId=null)
 	{
 		if(is_null($userId)) {
-			$userId = $this->loggedInUserId();
+			$userId = auth()->id();
 		}
 		
 		return $query->whereHas('wishlists', function($q) use($userId) {
@@ -70,7 +70,7 @@ trait Wishlistable
 	public function wishlist($userId=null)
 	{
 		if(is_null($userId)) {
-			$userId = $this->loggedInUserId();
+			$userId = auth()->id();
 		}
 		
 		if($userId) {
@@ -95,7 +95,7 @@ trait Wishlistable
 	public function unwishlist($userId=null)
 	{
 		if(is_null($userId)) {
-			$userId = $this->loggedInUserId();
+			$userId = auth()->id();
 		}
 		
 		if($userId) {
@@ -120,7 +120,7 @@ trait Wishlistable
 	public function wishlistd($userId=null)
 	{
 		if(is_null($userId)) {
-			$userId = $this->loggedInUserId();
+			$userId = auth()->id();
 		}
 		
 		return (bool) $this->wishlists()
@@ -160,15 +160,6 @@ trait Wishlistable
 				$counter->delete();
 			}
 		}
-	}
-	
-	/**
-	 * Fetch the primary ID of the currently logged in user
-	 * @return number
-	 */
-	public function loggedInUserId()
-	{
-		return auth()->id();
 	}
 	
 	/**
