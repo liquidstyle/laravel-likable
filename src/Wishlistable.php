@@ -117,7 +117,7 @@ trait Wishlistable
 	 * @param string $userId
 	 * @return boolean
 	 */
-	public function wishlistd($userId=null)
+	public function wishlisted($userId=null)
 	{
 		if(is_null($userId)) {
 			$userId = auth()->id();
