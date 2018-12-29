@@ -1,6 +1,9 @@
+!!! NOT STABLE - DO NOT USE !!!
+
 Laravel Likeable Plugin
 ============
 
+!!! NOT STABLE - DO NOT USE !!!
 Trait for Laravel Eloquent models to allow easy implementation of a "like" or "favorite" or "remember" feature.
 
 #### Composer Install (for Laravel 5)
